@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900&display=swap"
           rel="stylesheet">
 
-    <title>Breezed HTML Bootstrap Template</title>
+    <title>Экскурсионный тур в дендрологичный парк «СОФИЕВКА» и “НОВАЯ СОФИЕВКА”</title>
 
     <!--
 
@@ -176,11 +176,13 @@
                         <div class="row">
                             <div class="col-md-12 col-sm-12">
                                 <fieldset>
+                                    <label for="name"></label>
                                     <input name="name" type="text" id="name" placeholder="Ваше имя *" required="">
                                 </fieldset>
                             </div>
                             <div class="col-md-12 col-sm-12">
                                 <fieldset>
+                                    <label for="phone"></label>
                                     <input name="phone" type="text" id="phone" placeholder="Номер телефона" required="">
                                 </fieldset>
                             </div>
@@ -213,11 +215,9 @@
             <div class="col-lg-6 col-xs-12">
                 <div class="right-text-content">
                     <ul class="social-icons">
-                        <li><p>Follow Us</p></li>
+                        <li><p>Ми в соціальних мережах</p></li>
                         <li><a rel="nofollow" href="https://fb.com/templatemo"><i class="fa fa-facebook"></i></a></li>
-                        <li><a rel="nofollow" href="https://fb.com/templatemo"><i class="fa fa-twitter"></i></a></li>
                         <li><a rel="nofollow" href="https://fb.com/templatemo"><i class="fa fa-linkedin"></i></a></li>
-                        <li><a rel="nofollow" href="https://fb.com/templatemo"><i class="fa fa-dribbble"></i></a></li>
                     </ul>
                 </div>
             </div>
