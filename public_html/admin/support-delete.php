@@ -6,9 +6,9 @@ try {
         $id = $_GET['id'];
         $support= R::load('support', $id);
         R::trash($support);
-        header('location: /admin/support-admin.php?msg=Запись успешно удалена!');
+        header('location: /admin/tour-requests.php?msg=Запись успешно удалена!');
     }
 } catch (exception $e) {
     echo "Запись нельзя удалить. Есть связанные данные!";
-    echo "<br><a href = '/admin/support-admin.php'>Назад</a>";
+    echo "<br><a href = '/admin/tour-requests.php'>Назад</a>";
 }

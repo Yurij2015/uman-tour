@@ -40,7 +40,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <a href="index.html" class="nav-link">Главная</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="support-admin.php" class="nav-link">Заявки на техническую поддержку</a>
+        <a href="tour-requests.php" class="nav-link">Заявки на техническую поддержку</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="user-admin.php" class="nav-link">Пользователи</a>
@@ -91,7 +91,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </a>
               </li>
               <li class="nav-item">
-                <a href="support-admin.php" class="nav-link">
+                <a href="tour-requests.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Заявки на техподдержку</p>
                 </a>

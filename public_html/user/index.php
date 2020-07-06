@@ -226,6 +226,8 @@
 
                                 </fieldset>
                             </div>
+
+
                             <div class="col-lg-12">
                                 <fieldset>
                                     <button type="submit" id="form-submit" class="main-button-icon">Зателефонуйте! <i
@@ -247,17 +249,16 @@
         <div class="row">
             <div class="col-lg-6 col-xs-12">
                 <div class="left-text-content">
-                    <p>Copyright &copy; 2020 Breezed Co., Ltd.
-
-                        - Design: <a rel="nofollow noopener" href="https://templatemo.com">TemplateMo</a></p>
+                    <p>Copyright &copy; 2020 Умань Дві Софіївки + Буцький каньйон
+                        <br>Сайт створено <a rel="nofollow noopener" href="https://www.facebook.com/webdev.poltava/">WebDev.Poltava</a></p>
                 </div>
             </div>
             <div class="col-lg-6 col-xs-12">
                 <div class="right-text-content">
                     <ul class="social-icons">
                         <li><p>Ми в соціальних мережах</p></li>
-                        <li><a rel="nofollow" href="https://fb.com/templatemo"><i class="fa fa-facebook"></i></a></li>
-                        <li><a rel="nofollow" href="https://fb.com/templatemo"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a rel="nofollow" href="https://www.facebook.com/sofiuvka"><i class="fa fa-facebook"></i></a></li>
+<!--                        <li><a rel="nofollow" href="https://fb.com/templatemo"><i class="fa fa-linkedin"></i></a></li>-->
                     </ul>
                 </div>
             </div>

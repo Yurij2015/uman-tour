@@ -6,33 +6,33 @@
       <a href="#" class="nav-link active">
         <i class="nav-icon fas fa-tachometer-alt"></i>
         <p>
-          Меню администратора
+          Меню админістратора
           <i class="right fas fa-angle-left"></i>
         </p>
       </a>
       <ul class="nav nav-treeview">
         <li class="nav-item">
-          <a href="index.php" class="nav-link">
-            <i class="far fa-circle nav-icon"></i>
-            <p>Главная</p>
+          <a href="index.php" class="nav-link active">
+            <i class="far fa-circle nav-icon "></i>
+            <p>Головна</p>
           </a>
         </li>
         <li class="nav-item">
-          <a href="support-admin.php" class="nav-link active">
+          <a href="sitedata.php" class="nav-link">
             <i class="far fa-circle nav-icon"></i>
-            <p>Заявки на техподдержку</p>
+            <p>Дані сайту</p>
           </a>
         </li>
         <li class="nav-item">
-          <a href="user-admin.php" class="nav-link">
+          <a href="tour-requests.php" class="nav-link">
             <i class="far fa-circle nav-icon"></i>
-            <p>Пользователи</p>
+            <p>Заявки</p>
           </a>
         </li>
         <li class="nav-item">
           <a href="log-out.php" class="nav-link">
             <i class="far fa-circle nav-icon"></i>
-            <p>Выход <?= "| " . $_SESSION['username'] ?></p>
+            <p>Вихід <?= "| " . $_SESSION['username'] ?></p>
           </a>
         </li>
       </ul>

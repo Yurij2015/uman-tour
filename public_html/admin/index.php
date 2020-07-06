@@ -89,14 +89,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <div class="col-lg-12">
             <div class="card">
               <div class="card-body">
-                <h5 class="card-title">Список заявок на техподдержку</h5>
+                <h5 class="card-title">Список матеріалів</h5>
                 <table class="table table-hover">
                   <thead>
                   <tr>
                     <th>№</th>
-                    <th>Вопрос</th>
-                    <th>Пользователь</th>
-                    <th>Дата заявки</th>
+                    <th>Заголовок</th>
+                    <th>Підзаголовок</th>
+                    <th>Зміст</th>
                     <th></th>
                   </tr>
                   </thead>
@@ -112,7 +112,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <td>" . $support['header'] . "</td>
                         <td>" . $support['subheader'] . "</td>
                         <td>" . $support['content'] . "</td>   
-                        <td><a href='support-update.php?id=$id'>Редактировать</a>|<a href='support-delete.php?id=$id' onclick='return confirmDelete();'>Удалить</a></td>
+                        <td><a href='support-update.php?id=$id'>Редагувати</a>|<a href='support-delete.php?id=$id' onclick='return confirmDelete();'>Видалити</a></td>
                       </tr>";
                   }
                   ?>

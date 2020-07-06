@@ -93,7 +93,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="index.php">Главная</a></li>
-              <li class="breadcrumb-item active"><a href="support-admin.php">Заявки</a>
+              <li class="breadcrumb-item active"><a href="tour-requests.php">Заявки</a>
               </li>
             </ol>
           </div><!-- /.col -->
@@ -126,7 +126,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   </div>
                   <input hidden name="id" value="<?= $id ?>">
                   <button type="submit" class="btn btn-success">Сохранить</button>
-                  <a href="support-admin.php" class="btn btn-info">Назад</a>
+                  <a href="tour-requests.php" class="btn btn-info">Назад</a>
                 </form>
               </div>
             </div>

@@ -40,7 +40,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <a href="index.php" class="nav-link">Главная</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="support-admin.php" class="nav-link active">Достопримечательности</a>
+        <a href="tour-requests.php" class="nav-link active">Достопримечательности</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="user-admin.php" class="nav-link">Пользователи</a>
@@ -91,7 +91,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </a>
               </li>
               <li class="nav-item">
-                <a href="support-admin.php" class="nav-link active">
+                <a href="tour-requests.php" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Объекты в БД</p>
                 </a>
@@ -129,7 +129,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="index.php">Главная</a></li>
-              <li class="breadcrumb-item active"><a href="support-admin.php">Объекты в базе данных</a>
+              <li class="breadcrumb-item active"><a href="tour-requests.php">Объекты в базе данных</a>
               </li>
               <li class="breadcrumb-item active">Добавить запись</li>
             </ol>
@@ -178,7 +178,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </select>
                   </div>
                   <button type="submit" class="btn btn-success">Сохранить запись</button>
-                  <a href="support-admin.php" class="btn btn-info">Назад</a>
+                  <a href="tour-requests.php" class="btn btn-info">Назад</a>
                 </form>
               </div>
             </div>

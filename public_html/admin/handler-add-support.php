@@ -15,6 +15,6 @@ if ($_POST) {
     $markers->lng = $lng;
     $markers->type = $type;
     R::store($markers);
-    header('location: /admin/support-admin.php?msg=Запись успешно добавлена!');
+    header('location: /admin/tour-requests.php?msg=Запись успешно добавлена!');
   }
 }
