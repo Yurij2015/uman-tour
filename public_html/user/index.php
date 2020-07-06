@@ -9,6 +9,34 @@
     <meta name="author" content="">
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900&display=swap"
           rel="stylesheet">
+    <style>
+        .sd-container {
+            position: relative;
+            float: left;
+        }
+
+        .sd {
+            border: 1px solid #1cbaa5;
+            padding: 5px 10px;
+            height: 30px;
+            width: 150px;
+        }
+
+        .open-button {
+            position: absolute;
+            top: 10px;
+            right: 3px;
+            width: 25px;
+            height: 25px;
+            background: #fff;
+            pointer-events: none;
+        }
+
+        .open-button button {
+            border: none;
+            background: transparent;
+        }
+    </style>
 
     <title>Экскурсионный тур в дендрологичный парк «СОФИЕВКА» и “НОВАЯ СОФИЕВКА”</title>
 
@@ -57,9 +85,9 @@
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
-                        <li class="scroll-to-section"><a href="#top" class="active">Главная</a></li>
-                        <li class="scroll-to-section"><a href="#about">О туре</a></li>
-                        <li class="scroll-to-section"><a href="#contact-us">Записаться</a></li>
+                        <li class="scroll-to-section"><a href="#top" class="active">Головна</a></li>
+                        <li class="scroll-to-section"><a href="#about">Про тур</a></li>
+                        <li class="scroll-to-section"><a href="#contact-us">Оформити заявку</a></li>
                     </ul>
                     <a class='menu-trigger'>
                         <span>Menu</span>
@@ -162,33 +190,45 @@
             <div class="col-lg-4 col-md-4 col-xs-12">
                 <div class="left-text-content">
                     <div class="section-heading">
-                        <h6>Заказать тур</h6>
-                        <h2>Заполните форму для заказа тура!</h2>
+                        <h6>Замовити тур</h6>
+                        <h2>Заповніть форму для замовлення туру!</h2>
                     </div>
                     <ul class="contact-info">
-                        <li><img src="assets/images/contact-info-01.png" alt="">010-020-0860</li>
+                        <li><a href="tel:+380668781682"><img src="assets/images/contact-info-01.png" alt="">
+                                +380668781682</a>
+                        </li>
                     </ul>
                 </div>
             </div>
             <div class="col-lg-8 col-md-8 col-xs-12">
                 <div class="contact-form">
-                    <form id="contact" action="" method="post">
+                    <form id="contact" action="order-add.php" method="post">
                         <div class="row">
                             <div class="col-md-12 col-sm-12">
                                 <fieldset>
-                                    <label for="name"></label>
-                                    <input name="name" type="text" id="name" placeholder="Ваше имя *" required="">
+                                    <label for="name">Прізвище, Ім'я, По батькові</label>
+                                    <input name="name" type="text" id="name" placeholder="Прізвище, Ім'я, По батькові *"
+                                           required="">
                                 </fieldset>
                             </div>
                             <div class="col-md-12 col-sm-12">
                                 <fieldset>
-                                    <label for="phone"></label>
-                                    <input name="phone" type="text" id="phone" placeholder="Номер телефона" required="">
+                                    <label for="phone">Номер телефону</label>
+                                    <input name="phone" type="text" id="phone" placeholder="Номер телефону *"
+                                           required="">
+                                </fieldset>
+                            </div>
+                            <div class="col-md-12 col-sm-12">
+                                <fieldset>
+
+                                    <label for="date">Дата поїздки</label>
+                                    <input name="date" type="date" id="date" required="">
+
                                 </fieldset>
                             </div>
                             <div class="col-lg-12">
                                 <fieldset>
-                                    <button type="submit" id="form-submit" class="main-button-icon">Перезвоните мне! <i
+                                    <button type="submit" id="form-submit" class="main-button-icon">Зателефонуйте! <i
                                                 class="fa fa-arrow-right"></i></button>
                                 </fieldset>
                             </div>
