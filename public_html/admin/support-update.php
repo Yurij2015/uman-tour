@@ -41,6 +41,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
       selector: "#content",
       language: 'ru',
       plugins: 'advlist autolink link image lists charmap print preview',
+      toolbar: "image",
+
       height: 400
     });
   </script>
