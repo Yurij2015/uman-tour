@@ -154,6 +154,11 @@ if (isset($_GET['msg'])) {
     <div class="container">
         <div class="row">
             <div class="col-md-12 mb-3"><p id="order-added" class="text-warning text-center"><?= $msg ?></p></div>
+            <script>
+                setTimeout(function() {
+                    $('#order-added').fadeOut('fast');
+                }, 10000); // <-- time in milliseconds
+            </script>
             <div class="col-lg-4 col-md-4 col-xs-12">
                 <div class="left-text-content">
                     <div class="section-heading">
