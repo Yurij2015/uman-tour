@@ -1,6 +1,5 @@
 <?php
-
-$host     = 'mysql_techsupport';
+$host     = 'mysql_sofievka';
 $user     = 'root';
 $password = 'root3004917779';
-$db_name  = 'db_techsupport';
+$db_name  = 'db_sofievka';

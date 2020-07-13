@@ -1,8 +1,11 @@
+<?php
+if (isset($_GET['msg'])) {
+    $msg = $_GET['msg'];
+}
+?>
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="uk">
 <head>
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -37,31 +40,15 @@
             background: transparent;
         }
     </style>
-
     <title>Экскурсионный тур в дендрологичный парк «СОФИЕВКА» и “НОВАЯ СОФИЕВКА”</title>
-
-    <!--
-
-    Breezed Template
-
-    https://templatemo.com/tm-543-breezed
-
-    -->
     <!-- Additional CSS Files -->
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
-
     <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css">
-
     <link rel="stylesheet" href="assets/css/templatemo-breezed.css">
-
     <link rel="stylesheet" href="assets/css/owl-carousel.css">
-
     <link rel="stylesheet" href="assets/css/lightbox.css">
-
 </head>
-
 <body>
-
 <!-- ***** Preloader Start ***** -->
 <div id="preloader">
     <div class="jumper">
@@ -71,7 +58,6 @@
     </div>
 </div>
 <!-- ***** Preloader End ***** -->
-
 <!-- ***** Header Area Start ***** -->
 <header class="header-area header-sticky bg">
     <div class="container">
@@ -99,7 +85,6 @@
     </div>
 </header>
 <!-- ***** Header Area End ***** -->
-
 <!-- ***** Main Banner Area Start ***** -->
 <div class="main-banner header-text" id="top">
     <div class="Modern-Slider">
@@ -108,12 +93,6 @@
             <div class="img-fill">
                 <img src="assets/images/slide9.jpg" alt="">
                 <div class="text-content">
-                    <!--
-                                      <h3>Welcome To Breezed</h3>
-                                      <h5>New Bootstrap Template</h5>
-                                      <a href="#" class="main-stroked-button">Learn More</a>
-                                      <a href="#" class="main-filled-button">Get It Now</a>
-                    -->
                 </div>
             </div>
         </div>
@@ -123,12 +102,6 @@
             <div class="img-fill">
                 <img src="assets/images/slide3.jpg" alt="">
                 <div class="text-content">
-                    <!--
-                                      <h3>Integrated Marketing Media</h3>
-                                      <h5>Best Digital Marketing</h5>
-                                      <a href="#" class="main-stroked-button">Read More</a>
-                                      <a href="#" class="main-filled-button">Take Action</a>
-                    -->
                 </div>
             </div>
         </div>
@@ -138,12 +111,6 @@
             <div class="img-fill">
                 <img src="assets/images/slide6.jpg" alt="">
                 <div class="text-content">
-                    <!--
-                                      <h3>High Performance</h3>
-                                      <h5>Robust and Speedy</h5>
-                                      <a href="#" class="main-stroked-button">Learn More</a>
-                                      <a href="#" class="main-filled-button">Get It Now</a>
-                    -->
                 </div>
             </div>
         </div>
@@ -152,7 +119,6 @@
 </div>
 <div class="scroll-down scroll-to-section"><a href="#about"><i class="fa fa-arrow-down"></i></a></div>
 <!-- ***** Main Banner Area End ***** -->
-
 <!-- ***** About Area Starts ***** -->
 <section class="section" id="about">
     <div class="container">
@@ -174,7 +140,6 @@
                                 </div>
                             </div>
                             <?php
-
                         }
                         ?>
                     </div>
@@ -187,6 +152,7 @@
 <section class="section" id="contact-us">
     <div class="container">
         <div class="row">
+            <div id="order-added" class="col-md-12 mb-3"><p class="text-warning"><?= $msg ?></p></div>
             <div class="col-lg-4 col-md-4 col-xs-12">
                 <div class="left-text-content">
                     <div class="section-heading">
@@ -220,14 +186,16 @@
                             </div>
                             <div class="col-md-12 col-sm-12">
                                 <fieldset>
-
-                                    <label for="date">Дата поїздки</label>
-                                    <input name="date" type="date" id="date" required="">
-
+                                    <label for="dateoftour">Дата поїздки</label>
+                                    <input name="dateoftour" type="date" id="dateoftour" required="">
                                 </fieldset>
                             </div>
-
-
+                            <div class="col-md-12 col-sm-12">
+                                <fieldset>
+                                    <label for="count">Кількість місць</label>
+                                    <input name="count" type="number" id="count" required="">
+                                </fieldset>
+                            </div>
                             <div class="col-lg-12">
                                 <fieldset>
                                     <button type="submit" id="form-submit" class="main-button-icon">Зателефонуйте! <i
@@ -250,15 +218,17 @@
             <div class="col-lg-6 col-xs-12">
                 <div class="left-text-content">
                     <p>Copyright &copy; 2020 Умань Дві Софіївки + Буцький каньйон
-                        <br>Сайт створено <a rel="nofollow noopener" href="https://www.facebook.com/webdev.poltava/">WebDev.Poltava</a></p>
+                        <br>Сайт створено <a rel="nofollow noopener" href="https://www.facebook.com/webdev.poltava/">WebDev.Poltava</a>
+                    </p>
                 </div>
             </div>
             <div class="col-lg-6 col-xs-12">
                 <div class="right-text-content">
                     <ul class="social-icons">
                         <li><p>Ми в соціальних мережах</p></li>
-                        <li><a rel="nofollow" href="https://www.facebook.com/sofiuvka"><i class="fa fa-facebook"></i></a></li>
-<!--                        <li><a rel="nofollow" href="https://fb.com/templatemo"><i class="fa fa-linkedin"></i></a></li>-->
+                        <li><a rel="nofollow" href="https://www.facebook.com/sofiuvka"><i
+                                        class="fa fa-facebook"></i></a></li>
+                        <!--                        <li><a rel="nofollow" href="https://fb.com/templatemo"><i class="fa fa-linkedin"></i></a></li>-->
                     </ul>
                 </div>
             </div>
