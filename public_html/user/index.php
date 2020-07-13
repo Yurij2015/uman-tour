@@ -1,6 +1,7 @@
 <?php
 if (isset($_GET['msg'])) {
     $msg = $_GET['msg'];
+
 }
 ?>
 <!DOCTYPE html>
@@ -65,7 +66,7 @@ if (isset($_GET['msg'])) {
             <div class="col-12">
                 <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
-                    <a href="index.html" class="logo">
+                    <a href="/" class="logo">
                         .UMANTOUR
                     </a>
                     <!-- ***** Logo End ***** -->
@@ -152,7 +153,7 @@ if (isset($_GET['msg'])) {
 <section class="section" id="contact-us">
     <div class="container">
         <div class="row">
-            <div id="order-added" class="col-md-12 mb-3"><p class="text-warning"><?= $msg ?></p></div>
+            <div class="col-md-12 mb-3"><p id="order-added" class="text-warning text-center"><?= $msg ?></p></div>
             <div class="col-lg-4 col-md-4 col-xs-12">
                 <div class="left-text-content">
                     <div class="section-heading">

@@ -14,6 +14,8 @@ if ($_POST) {
         $tourrequest->dateoftour = $dateoftour;
         $tourrequest->count = $count;
         R::store($tourrequest);
-        header('location: /?msg=Заявка на тур успішно відправлена. Очікуйте телефонного дзвінка для уточнення деталей поїздки!#order-added');
+        $msg = 'Заявка на тур успішно відправлена. Очікуйте телефонного дзвінка для уточнення деталей поїздки!';
+        //указываем полный путь, так как переадресация с главной на user
+        header("Location: /user/?msg=$msg#order-added");
     }
 }
