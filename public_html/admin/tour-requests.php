@@ -94,7 +94,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     <thead>
                                     <tr>
                                         <th>№</th>
-                                        <th>ФІО клієнта</th>
+                                        <th>ПІП</th>
                                         <th>Номер телефону</th>
                                         <th>Дата туру</th>
                                         <th>Кількість місць</th>
@@ -108,13 +108,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     $supports = R::getAll('SELECT * FROM tourrequest');
                                     foreach ($supports as $support) {
                                         $id = $support['id'];
+                                        $orderer = $support['name'];
                                         echo "<tr>
                         <td>" . $id . "</td>
-                        <td>" . $support['name'] . "</td>
+                        <td>" . $orderer . "</td>
                         <td>" . $support['phone'] . "</td>
                         <td>" . $support['dateoftour'] . "</td> 
                         <td>" . $support['count'] . "</td>   
-                          <td><a href='tour-request-update.php?id=$id'>Редактировать</a> | <a href='tour-request-delete.php?id=$id' onclick='return confirmDelete();'>Удалить</a></td>
+                          <td><a href='tour-request-update.php?id=$id'>Редактировать</a> | <a href='tour-request-delete.php?id=$id' onclick='return confirmDelete();'>Удалить</a> | <a href='tourist-add.php?tourrequestid=$id&orderer=$orderer'>Додати замовлення</a> </td>
                       </tr>";
                                     }
                                     ?>

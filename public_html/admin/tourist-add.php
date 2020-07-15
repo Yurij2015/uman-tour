@@ -4,6 +4,10 @@ if (empty($_SESSION['username'])) {
     header("Location: /admin/log-in.php");
 }
 $page = "tourist-add";
+if (isset($_GET['tourrequestid'])) {
+    $tourrequest = $_GET['tourrequestid'];
+    $orderer = $_GET['orderer'];
+}
 ?>
 <!DOCTYPE html>
 <html lang="uk">
@@ -66,10 +70,8 @@ $page = "tourist-add";
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="index.php">Главная</a></li>
-                            <li class="breadcrumb-item active"><a href="tour-requests.php">Объекты в базе данных</a>
-                            </li>
-                            <li class="breadcrumb-item active">Добавить запись</li>
+                            <li class="breadcrumb-item"><a href="index.php">Головна</a></li>
+                            <li class="breadcrumb-item active">Додати запис</li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -85,25 +87,92 @@ $page = "tourist-add";
                             <div class="card-body">
                                 <form method="post" action="handler-add-tourist.php">
                                     <div class="form-group">
-                                        <label for="name">Название</label>
-                                        <input type="text" class="form-control" name="name" id="name" value="">
+                                        <label for="tourrequest">Номер
+                                            заявки <?php if (isset($tourrequest)) echo $tourrequest . " <span class='text-warning'>Заявник: " . $orderer . "</span>" ?></label>
+                                        <input type="text"
+                                               class="form-control" <?php if (isset($tourrequest)) echo "hidden" ?>
+                                               name="tourrequest" id="tourrequest"
+                                               value="<?php if (isset($tourrequest)) echo $tourrequest ?>">
                                     </div>
                                     <div class="form-group">
-                                        <label for="address">Адрес</label>
-                                        <input type="text" class="form-control" name="address" id="address" value="">
+                                        <label for="customername">ПІП</label>
+                                        <input type="text" class="form-control" name="customername" id="customername"
+                                               value="<?php if (isset($tourrequest)) echo $orderer ?>">
                                     </div>
                                     <div class="form-group">
-                                        <label for="lat">Широта</label>
-                                        <input type="number" step="any" class="form-control" name="lat" id="lat"
+                                        <label for="date">Дата виїзду</label>
+                                        <input type="date" class="form-control" name="date" id="date"
                                                value="">
                                     </div>
                                     <div class="form-group">
-                                        <label for="lng">Долгота</label>
-                                        <input type="number" step="any" class="form-control" name="lng" id="lng"
+                                        <label for="place">Місце виїзду</label>
+                                        <input type="text" class="form-control" name="place" id="place"
                                                value="">
                                     </div>
-                                    <button type="submit" class="btn btn-success">Сохранить запись</button>
-                                    <a href="tour-requests.php" class="btn btn-info">Назад</a>
+                                    <div class="form-group">
+                                        <label for="birthdate">Дата народження</label>
+                                        <input type="date" class="form-control" name="birthdate" id="birthdate"
+                                               value="">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="contact">Контакти | Viber</label>
+                                        <input type="tel" class="form-control" name="contact" id="contact"
+                                               value="">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="age">Дорослий/Дитина</label>
+                                        <select type="text" class="form-control" name="age" id="age">
+                                            <option value="дорослий">дорослий</option>
+                                            <option value="дитина">дитина</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="prepay">Аванс</label>
+                                        <input type="number" step="any" class="form-control" name="prepay" id="prepay"
+                                               value="">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="canyontour">Екскурсія каньйон</label>
+                                        <select type="text" class="form-control" name="canyontour" id="canyontour">
+                                            <option value="">не визначено</option>
+                                            <option value="так">так</option>
+                                            <option value="ні">ні</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="lunchcanyon">Обід каньйон</label>
+                                        <select type="text" class="form-control" name="lunchcanyon" id="lunchcanyon">
+                                            <option value="">не визначено</option>
+                                            <option value="так">так</option>
+                                            <option value="ні">ні</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="entrancesofievka">Вхід Софіївка</label>
+                                        <select type="text" class="form-control" name="entrancesofievka" id="entrancesofievka">
+                                            <option value="">не визначено</option>
+                                            <option value="так">так</option>
+                                            <option value="ні">ні</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="sofievkatour">Екскурсія Софіївка</label>
+                                        <select type="text" class="form-control" name="sofievkatour" id="sofievkatour">
+                                            <option value="">не визначено</option>
+                                            <option value="так">так</option>
+                                            <option value="ні">ні</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="fullplace">Повний</label>
+                                        <select type="text" class="form-control" name="fullplace" id="fullplace">
+                                            <option value="">не визначено</option>
+                                            <option value="так">так</option>
+                                            <option value="ні">ні</option>
+                                        </select>
+                                    </div>
+                                    <button type="submit" class="btn btn-success">Зберегти</button>
+                                    <a href="tour-orders.php" class="btn btn-info">Назад</a>
                                 </form>
                             </div>
                         </div>
