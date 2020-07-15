@@ -58,9 +58,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <li class="nav-item d-none d-sm-inline-block">
         <a href="tour-requests.php" class="nav-link">Заявки на техничекскую поддержку</a>
       </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="user-admin.php" class="nav-link">Пользователи</a>
-      </li>
     </ul>
   </nav>
   <!-- /.navbar -->
