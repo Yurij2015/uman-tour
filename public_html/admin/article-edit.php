@@ -42,7 +42,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
             language: 'ru',
             plugins: 'advlist autolink link image lists charmap print preview code',
             toolbar: "image code",
-            height: 400
+            height: 400,
+            image_class_list: [
+                {title: 'None', value: ''},
+                {title: 'ImgFluid', value: 'img-fluid'},
+            ]
         });
     </script>
 </head>
