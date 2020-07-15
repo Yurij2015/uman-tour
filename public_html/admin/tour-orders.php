@@ -103,7 +103,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         <th>Місце виїзду</th>
                                         <th>Дата народження</th>
                                         <th>Контакти | Viber</th>
-                                        <th>Вік</th>
+                                        <th>Дорослий/Дитина</th>
                                         <th>Аванс</th>
                                         <th>Екскурсія каньйон</th>
                                         <th>Обід каньйон</th>
@@ -120,14 +120,27 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     $tourorders = R::getAll('SELECT * FROM tourorders');
                                     foreach ($tourorders as $tourorder) {
                                         $id = $tourorder['id'];
-                                        echo "<tr>
-                                        <td>" . $id . "</td>
-                                        <td>" . $tourorder['name'] . "</td>
-                                        <td>" . $tourorder['phone'] . "</td>
-                                        <td>" . $tourorder['dateoftour'] . "</td> 
-                                        <td>" . $tourorder['count'] . "</td>   
-                                        <td><a href='tour-order-update.php?id=$id'>Редактировать</a> | <a href='tour-order-delete.php?id=$id' onclick='return confirmDelete();'>Удалить</a></td>
-                                      </tr>";
+                                        ?>
+                                        <tr>
+                                            <td><?= $id ?></td>
+                                            <td><?= $tourorder['tourrequest'] ?></td>
+                                            <td><?= $tourorder['customername'] ?></td>
+                                            <td><?= $tourorder['date'] ?></td>
+                                            <td><?= $tourorder['place'] ?></td>
+                                            <td><?= $tourorder['birthdate'] ?></td>
+                                            <td><?= $tourorder['contact'] ?></td>
+                                            <td><?= $tourorder['age'] ?></td>
+                                            <td><?= $tourorder['prepay'] ?></td>
+                                            <td><?= $tourorder['canyontour'] ?></td>
+                                            <td><?= $tourorder['lunchcanyon'] ?></td>
+                                            <td><?= $tourorder['entrancesofievka'] ?></td>
+                                            <td><?= $tourorder['sofievkatour'] ?></td>
+                                            <td><?= $tourorder['fullplace'] ?></td>
+                                            <td><a href="tour-order-update.php?id=<?= $id ?>">Редагувати</a> | <a
+                                                        href="tour-order-delete.php?id=<?= $id ?>>"
+                                                        onclick='return confirmDelete();'>Видалити</a></td>
+                                        </tr>
+                                        <?php
                                     }
                                     ?>
                                     </tbody>
