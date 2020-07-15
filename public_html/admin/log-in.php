@@ -16,7 +16,7 @@ if ($_POST['submit']) {
   } else {
     echo '
         <div class="alert alert-danger">
-            <strong>Ошибка!</strong> Логин или пароль не верны!
+            <strong>Помилка!</strong> Логін або пароль не правильні!
         </div>
         ';
   }
@@ -27,13 +27,13 @@ if ($_POST['submit']) {
 This is a starter template page. Use this page to start your new project from
 scratch. This page gets rid of all links and provides the needed markup only.
 -->
-<html lang="en">
+<html lang="uk">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-  <title>Login | Admin Panel | TechSupport</title>
+  <title>Login | Admin Panel</title>
 
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
@@ -51,12 +51,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <ul class="navbar-nav">
       <li class="nav-item">
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
-      </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="index.php" class="nav-link">Главная</a>
-      </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="tour-requests.php" class="nav-link">Заявки на техничекскую поддержку</a>
       </li>
     </ul>
   </nav>
@@ -89,7 +83,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-                Меню администратора
+                Меню адміна
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
@@ -97,19 +91,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <li class="nav-item">
                 <a href="index.php" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Главная</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Вопросы в техподдержку</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Пользователи</p>
+                  <p>Головна</p>
                 </a>
               </li>
             </ul>
@@ -128,12 +110,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Страница входа в систему</h1>
+            <h1 class="m-0 text-dark">Сторінка входу в систему</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Главная</a></li>
-              <li class="breadcrumb-item active">Вход в систему</li>
+              <li class="breadcrumb-item"><a href="/admin/">Головна</a></li>
+              <li class="breadcrumb-item active">Вхід в систему</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -150,16 +132,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <div class="card-body">
                 <form method="post">
                   <div class="form-group">
-                    <label for="username" class="float-left">Логин пользователя</label>
+                    <label for="username" class="float-left">Логін адміна</label>
                     <input type="text" class="form-control" name="username" id="username"
-                           placeholder="Ваш логин" required>
+                           placeholder="Ваш логін" required>
                   </div>
                   <div class="form-group">
                     <label for="password" class="float-left">Пароль</label>
                     <input type="password" class="form-control" name="password" id="password"
                            placeholder="Пароль" required>
                   </div>
-                  <input name="submit" type="submit" class="btn btn-danger float-right" value="Войти">
+                  <input name="submit" type="submit" class="btn btn-danger float-right" value="Вхід">
                 </form>
               </div>
             </div>

@@ -70,8 +70,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="index.php">Главная</a></li>
-              <li class="breadcrumb-item active">Заявки</li>
+              <li class="breadcrumb-item"><a href="index.php">Головна</a></li>
+              <li class="breadcrumb-item active">Контент сайту</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -85,7 +85,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <div class="col-lg-12">
             <div class="card">
               <div class="card-body">
-                  <h5 class="card-title">Список матеріалів</h5>
+                  <h5 class="card-title">Дані на головній сторінці</h5>
                 <table class="table table-hover">
                   <thead>
                   <tr>
@@ -108,8 +108,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <td>" . $support['header'] . "</td>
                         <td>" . $support['subheader'] . "</td>
                         <td>" . $support['content'] . "</td>   
-                        <td><a href='article-edit.php?id=$id'>Редагувати</a>|<a href='support-delete.php?id=$id' onclick='return confirmDelete();'>Видалити</a></td>
-                      </tr>";
+                        <td><a href='article-edit.php?id=$id'>Редагувати</a></tr>";
                   }
                   ?>
                   </tbody>

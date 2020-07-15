@@ -114,7 +114,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-body">
-                                <form method="post" action="handler-update-support.php">
+                                <form method="post" action="handler-update-article.php">
                                     <div class="form-group">
                                         <label for="header">Заголовок</label>
                                         <input type="text" class="form-control" name="header" id="header"

@@ -88,16 +88,28 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-body">
-                                <a href="tourist-add.php" target="_blank" class="btn btn-primary float-right">Додати запис</a>
+                                <a href="tourist-add.php" target="_blank" class="btn btn-primary float-right">Додати
+                                    запис</a>
+                                <a href="report.php" target="_blank" class="btn btn-primary float-right mr-2">Сформувати
+                                    звіт</a>
                                 <h5 class="card-title">Список замовлень на тур</h5>
                                 <table class="table table-hover">
                                     <thead>
                                     <tr>
                                         <th>№</th>
-                                        <th>ФІО клієнта</th>
-                                        <th>Номер телефону</th>
-                                        <th>Дата туру</th>
-                                        <th>Кількість місць</th>
+                                        <th>Номер заявки</th>
+                                        <th>ПІП</th>
+                                        <th>Дата виїзду</th>
+                                        <th>Місце виїзду</th>
+                                        <th>Дата народження</th>
+                                        <th>Контакти | Viber</th>
+                                        <th>Вік</th>
+                                        <th>Аванс</th>
+                                        <th>Екскурсія каньйон</th>
+                                        <th>Обід каньйон</th>
+                                        <th>Вхід Софіївка</th>
+                                        <th>Екскурсія Софіївка</th>
+                                        <th>Повний</th>
                                         <th></th>
                                     </tr>
                                     </thead>
@@ -105,17 +117,17 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     <?php
                                     require_once("../RedBeanPHP5_4_2/rb.php");
                                     R::setup('mysql:host=mysql_sofievka;port=3306;dbname=db_sofievka', 'root', 'root3004917779');
-                                    $supports = R::getAll('SELECT * FROM tourrequest');
-                                    foreach ($supports as $support) {
-                                        $id = $support['id'];
+                                    $tourorders = R::getAll('SELECT * FROM tourorders');
+                                    foreach ($tourorders as $tourorder) {
+                                        $id = $tourorder['id'];
                                         echo "<tr>
-                        <td>" . $id . "</td>
-                        <td>" . $support['name'] . "</td>
-                        <td>" . $support['phone'] . "</td>
-                        <td>" . $support['dateoftour'] . "</td> 
-                        <td>" . $support['count'] . "</td>   
-                          <td><a href='tour-request-update.php?id=$id'>Редактировать</a> | <a href='tour-request-delete.php?id=$id' onclick='return confirmDelete();'>Удалить</a></td>
-                      </tr>";
+                                        <td>" . $id . "</td>
+                                        <td>" . $tourorder['name'] . "</td>
+                                        <td>" . $tourorder['phone'] . "</td>
+                                        <td>" . $tourorder['dateoftour'] . "</td> 
+                                        <td>" . $tourorder['count'] . "</td>   
+                                        <td><a href='tour-order-update.php?id=$id'>Редактировать</a> | <a href='tour-order-delete.php?id=$id' onclick='return confirmDelete();'>Удалить</a></td>
+                                      </tr>";
                                     }
                                     ?>
                                     </tbody>
