@@ -14,6 +14,8 @@ if (isset($_GET['id'])) {
     $phone = $sitedata->phone;
     $keywords = $sitedata->keywords;
     $description = $sitedata->description;
+    $sitepage = $sitedata->page;
+
 }
 $page = "tour-request-update";
 ?>
@@ -136,6 +138,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         <label for="content">Опис (не більше 80 символів)</label>
                                         <textarea type="text" class="form-control" name="description"
                                                   id="content"><?= $description ?></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="sitepage">Сторінка</label>
+                                        <input type="text" class="form-control" name="sitepage" id="sitepage"
+                                               value="<?= $sitepage ?>">
                                     </div>
                                     <input hidden name="id" value="<?= $id ?>">
                                     <button type="submit" class="btn btn-success">Зберегти</button>

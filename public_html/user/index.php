@@ -1,15 +1,24 @@
 <?php
 if (isset($_GET['msg'])) {
     $msg = $_GET['msg'];
-
 }
+require_once("../RedBeanPHP5_4_2/rb.php");
+R::setup('mysql:host=mysql_sofievka;port=3306;dbname=db_sofievka', 'root', 'root3004917779');
+$sitedata = R::load('sitedata', 1);
+$sitename = $sitedata->sitename;
+$footer = $sitedata->footer;
+$phone = $sitedata->phone;
+$keywords = $sitedata->keywords;
+$description = $sitedata->description;
+$sitepage = $sitedata->page;
 ?>
 <!DOCTYPE html>
 <html lang="uk">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
+    <meta name="description" content="<?= $description ?>">
+    <meta name="keywords" content="<?= $keywords ?>">
     <meta name="author" content="">
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900&display=swap"
           rel="stylesheet">
@@ -41,7 +50,7 @@ if (isset($_GET['msg'])) {
             background: transparent;
         }
     </style>
-    <title>Экскурсионный тур в дендрологичный парк «СОФИЕВКА» и “НОВАЯ СОФИЕВКА”</title>
+    <title><?= $sitename ?></title>
     <!-- Additional CSS Files -->
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css">
@@ -128,8 +137,6 @@ if (isset($_GET['msg'])) {
                 <div class="right-text-content">
                     <div class="section-heading">
                         <?php
-                        require_once("../RedBeanPHP5_4_2/rb.php");
-                        R::setup('mysql:host=mysql_sofievka;port=3306;dbname=db_sofievka', 'root', 'root3004917779');
                         $supports = R::getAll('SELECT * FROM article ORDER BY header');
                         foreach ($supports as $support) {
                             ?>
@@ -155,7 +162,7 @@ if (isset($_GET['msg'])) {
         <div class="row">
             <div class="col-md-12 mb-3"><p id="order-added" class="text-warning text-center"><?= $msg ?></p></div>
             <script>
-                setTimeout(function() {
+                setTimeout(function () {
                     $('#order-added').fadeOut('fast');
                 }, 10000); // <-- time in milliseconds
             </script>
@@ -166,8 +173,8 @@ if (isset($_GET['msg'])) {
                         <h2>Заповніть форму для замовлення туру!</h2>
                     </div>
                     <ul class="contact-info">
-                        <li><a href="tel:+380668781682"><img src="assets/images/contact-info-01.png" alt="">
-                                +380668781682</a>
+                        <li><a href="tel:<?= $phone ?>"><img src="assets/images/contact-info-01.png" alt="">
+                                <?= $phone ?></a>
                         </li>
                     </ul>
                 </div>
@@ -216,14 +223,13 @@ if (isset($_GET['msg'])) {
     </div>
 </section>
 <!-- ***** Contact Us Area Ends ***** -->
-
 <!-- ***** Footer Start ***** -->
 <footer>
     <div class="container">
         <div class="row">
             <div class="col-lg-6 col-xs-12">
                 <div class="left-text-content">
-                    <p>Copyright &copy; 2020 Умань Дві Софіївки + Буцький каньйон
+                    <p><?= $footer ?>
                         <br>Сайт створено <a rel="nofollow noopener" href="https://www.facebook.com/webdev.poltava/">WebDev.Poltava</a>
                     </p>
                 </div>
@@ -259,12 +265,9 @@ if (isset($_GET['msg'])) {
 <script src="assets/js/slick.js"></script>
 <script src="assets/js/lightbox.js"></script>
 <script src="assets/js/isotope.js"></script>
-
 <!-- Global Init -->
 <script src="assets/js/custom.js"></script>
-
 <script>
-
     $(function () {
         var selectedClass = "";
         $("p").click(function () {
@@ -275,11 +278,8 @@ if (isset($_GET['msg'])) {
                 $("." + selectedClass).fadeIn();
                 $("#portfolio").fadeTo(50, 1);
             }, 500);
-
         });
     });
-
 </script>
-
 </body>
 </html>

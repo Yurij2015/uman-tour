@@ -3,9 +3,17 @@ session_start();
 if (empty($_SESSION['username'])) {
 //  echo "Необходимо войти в систему!";
     header("Location: /admin/log-in.php");
-
 }
-$page = "sitedata";
+require_once("../RedBeanPHP5_4_2/rb.php");
+R::setup('mysql:host=mysql_sofievka;port=3306;dbname=db_sofievka', 'root', 'root3004917779');
+if (isset($_GET['id'])) {
+    $id = $_GET['id'];
+    $support = R::load('article', $id);
+    $header = $support->header;
+    $subheader = $support->subheader;
+    $content = $support->content;
+}
+
 ?>
 <!DOCTYPE html>
 <!--
@@ -18,7 +26,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title>Admin Panel | Дані клієнтської частини</title>
+    <title>Admin Panel | Редактировать запись</title>
 
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
@@ -26,6 +34,17 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="stylesheet" href="dist/css/adminlte.min.css">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <script type="text/javascript" src="plugins/tinymce/tinymce.min.js"></script>
+    <!-- TinyMCE -->
+    <script type="text/javascript">
+        tinyMCE.init({
+            selector: "#content",
+            language: 'ru',
+            plugins: 'advlist autolink link image lists charmap print preview code',
+            toolbar: "image code",
+            height: 400
+        });
+    </script>
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -70,59 +89,46 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0 text-dark">Дані клієнтської частини</h1>
+                        <h1 class="m-0 text-dark">Редактировать запись</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="index.php">Головна</a></li>
-                            <li class="breadcrumb-item active">Дані сайту</li>
+                            <li class="breadcrumb-item"><a href="index.php">Главная</a></li>
+                            <li class="breadcrumb-item active"><a href="tour-requests.php">Заявки</a>
+                            </li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
             </div><!-- /.container-fluid -->
         </div>
         <!-- /.content-header -->
+
         <!-- Main content -->
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="card">
-                            <div class="card-body">Дані сайту
-                                <h5 class="card-title"></h5>
-                                <table class="table table-hover">
-                                    <thead>
-                                    <tr>
-                                        <th>№</th>
-                                        <th>Назва сайту</th>
-                                        <th>Нижня частина</th>
-                                        <th>Ключові слова</th>
-                                        <th>Опис сайту</th>
-                                        <th>Номер телефону</th>
-                                        <th>Сторінка</th>
-                                        <th></th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <?php
-                                    require_once("../RedBeanPHP5_4_2/rb.php");
-                                    R::setup('mysql:host=mysql_sofievka;port=3306;dbname=db_sofievka', 'root', 'root3004917779');
-                                    $supports = R::getAll('SELECT * FROM sitedata');
-                                    foreach ($supports as $support) {
-                                        $id = $support['id'];
-                                        echo "<tr>
-                        <td>" . $id . "</td>
-                        <td>" . $support['sitename'] . "</td>
-                        <td>" . $support['footer'] . "</td>
-                        <td>" . $support['keywords'] . "</td> 
-                        <td>" . $support['description'] . "</td>
-                        <td>" . $support['phone'] . "</td>
-                        <td>" . $support['page'] . "</td>   
-                           <td><a href='tour-request-update.php?id=$id'>Редагувати</a></tr>";
-                                    }
-                                    ?>
-                                    </tbody>
-                                </table>
+                            <div class="card-body">
+                                <form method="post" action="handler-update-support.php">
+                                    <div class="form-group">
+                                        <label for="header">Заголовок</label>
+                                        <input type="text" class="form-control" name="header" id="header"
+                                               value="<?= $header ?>">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="subheader">Подзаголвок</label>
+                                        <input type="text" class="form-control" name="subheader" id="subheader"
+                                               value="<?= $subheader ?>">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="content">Контент</label>
+                                        <textarea type="text" class="form-control" name="content" id="content"><?= $content ?></textarea>
+                                    </div>
+                                    <input hidden name="id" value="<?= $id ?>">
+                                    <button type="submit" class="btn btn-success">Сохранить</button>
+                                    <a href="tour-requests.php" class="btn btn-info">Назад</a>
+                                </form>
                             </div>
                         </div>
                         <!-- /.card -->

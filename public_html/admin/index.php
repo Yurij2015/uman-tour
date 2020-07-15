@@ -108,7 +108,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <td>" . $support['header'] . "</td>
                         <td>" . $support['subheader'] . "</td>
                         <td>" . $support['content'] . "</td>   
-                        <td><a href='support-update.php?id=$id'>Редагувати</a>|<a href='support-delete.php?id=$id' onclick='return confirmDelete();'>Видалити</a></td>
+                        <td><a href='article-edit.php?id=$id'>Редагувати</a>|<a href='support-delete.php?id=$id' onclick='return confirmDelete();'>Видалити</a></td>
                       </tr>";
                   }
                   ?>
