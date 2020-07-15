@@ -5,6 +5,7 @@ if (empty($_SESSION['username'])) {
   header("Location: /admin/log-in.php");
 
 }
+$page = "report";
 ?>
 <!DOCTYPE html>
 <!--

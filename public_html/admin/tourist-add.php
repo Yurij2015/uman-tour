@@ -5,7 +5,7 @@ if (empty($_SESSION['username'])) {
     header("Location: /admin/log-in.php");
 
 }
-$page = "tour-requests";
+$page = "tourist-add";
 ?>
 <!DOCTYPE html>
 <!--
@@ -17,9 +17,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-
-    <title>Admin Panel | Заявки на поїздки</title>
-
+    <title>Admin Panel | Додати туриста</title>
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
     <!-- Theme style -->
@@ -70,12 +68,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0 text-dark">Заявки на поїздки з сайту</h1>
+                        <h1 class="m-0 text-dark">Додати туриста в тур</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="index.php">Главная</a></li>
-                            <li class="breadcrumb-item active">Заявки</li>
+                            <li class="breadcrumb-item active"><a href="tour-requests.php">Объекты в базе данных</a>
+                            </li>
+                            <li class="breadcrumb-item active">Добавить запись</li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -89,37 +89,28 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title">Список заявок на поїздки</h5>
-                                <table class="table table-hover">
-                                    <thead>
-                                    <tr>
-                                        <th>№</th>
-                                        <th>ФІО клієнта</th>
-                                        <th>Номер телефону</th>
-                                        <th>Дата туру</th>
-                                        <th>Кількість місць</th>
-                                        <th></th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <?php
-                                    require_once("../RedBeanPHP5_4_2/rb.php");
-                                    R::setup('mysql:host=mysql_sofievka;port=3306;dbname=db_sofievka', 'root', 'root3004917779');
-                                    $supports = R::getAll('SELECT * FROM tourrequest');
-                                    foreach ($supports as $support) {
-                                        $id = $support['id'];
-                                        echo "<tr>
-                        <td>" . $id . "</td>
-                        <td>" . $support['name'] . "</td>
-                        <td>" . $support['phone'] . "</td>
-                        <td>" . $support['dateoftour'] . "</td> 
-                        <td>" . $support['count'] . "</td>   
-                          <td><a href='tour-request-update.php?id=$id'>Редактировать</a> | <a href='tour-request-delete.php?id=$id' onclick='return confirmDelete();'>Удалить</a></td>
-                      </tr>";
-                                    }
-                                    ?>
-                                    </tbody>
-                                </table>
+                                <form method="post" action="handler-add-tourist.php">
+                                    <div class="form-group">
+                                        <label for="name">Название</label>
+                                        <input type="text" class="form-control" name="name" id="name" value="">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="address">Адрес</label>
+                                        <input type="text" class="form-control" name="address" id="address" value="">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="lat">Широта</label>
+                                        <input type="number" step="any" class="form-control" name="lat" id="lat"
+                                               value="">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="lng">Долгота</label>
+                                        <input type="number" step="any" class="form-control" name="lng" id="lng"
+                                               value="">
+                                    </div>
+                                    <button type="submit" class="btn btn-success">Сохранить запись</button>
+                                    <a href="tour-requests.php" class="btn btn-info">Назад</a>
+                                </form>
                             </div>
                         </div>
                         <!-- /.card -->

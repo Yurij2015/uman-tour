@@ -13,6 +13,9 @@
     <li class="nav-item d-none d-sm-inline-block">
       <a href="tour-requests.php" class="nav-link">Заявки</a>
     </li>
+      <li class="nav-item d-none d-sm-inline-block">
+          <a href="tour-orders.php" class="nav-link">Замовлення</a>
+      </li>
     <li class="nav-item d-none d-sm-inline-block">
       <a href="log-out.php" class="nav-link">Вихід <?= "| " . $_SESSION['username'] ?></a>
     </li>

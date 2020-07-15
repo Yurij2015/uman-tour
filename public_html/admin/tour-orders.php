@@ -5,7 +5,7 @@ if (empty($_SESSION['username'])) {
     header("Location: /admin/log-in.php");
 
 }
-$page = "tour-requests";
+$page = "tour-orders";
 ?>
 <!DOCTYPE html>
 <!--
@@ -18,7 +18,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title>Admin Panel | Заявки на поїздки</title>
+    <title>Admin Panel | Замовлення турів</title>
 
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
@@ -62,7 +62,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
         </div>
         <!-- /.sidebar -->
     </aside>
-
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -70,12 +69,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0 text-dark">Заявки на поїздки з сайту</h1>
+                        <h1 class="m-0 text-dark">Облік замовлень і туристів</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="index.php">Главная</a></li>
-                            <li class="breadcrumb-item active">Заявки</li>
+                            <li class="breadcrumb-item"><a href="index.php">Головна</a></li>
+                            <li class="breadcrumb-item active">Замовлення</li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -89,7 +88,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title">Список заявок на поїздки</h5>
+                                <a href="tourist-add.php" target="_blank" class="btn btn-primary float-right">Додати запис</a>
+                                <h5 class="card-title">Список замовлень на тур</h5>
                                 <table class="table table-hover">
                                     <thead>
                                     <tr>

@@ -12,23 +12,29 @@
       </a>
       <ul class="nav nav-treeview">
         <li class="nav-item">
-          <a href="index.php" class="nav-link active">
+          <a href="index.php" class="nav-link <?php if ($page == "index") echo "active" ?>">
             <i class="far fa-circle nav-icon "></i>
             <p>Головна</p>
           </a>
         </li>
         <li class="nav-item">
-          <a href="sitedata.php" class="nav-link">
+          <a href="sitedata.php" class="nav-link <?php if ($page == "sitedata") echo "active" ?>">
             <i class="far fa-circle nav-icon"></i>
             <p>Дані сайту</p>
           </a>
         </li>
         <li class="nav-item">
-          <a href="tour-requests.php" class="nav-link">
+          <a href="tour-requests.php" class="nav-link <?php if ($page == "tour-requests") echo "active" ?>">
             <i class="far fa-circle nav-icon"></i>
             <p>Заявки</p>
           </a>
         </li>
+          <li class="nav-item">
+              <a href="tour-orders.php" class="nav-link <?php if ($page == "tour-orders") echo "active" ?>">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Замовлення</p>
+              </a>
+          </li>
         <li class="nav-item">
           <a href="log-out.php" class="nav-link">
             <i class="far fa-circle nav-icon"></i>
