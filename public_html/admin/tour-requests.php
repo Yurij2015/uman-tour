@@ -98,6 +98,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         <th>Номер телефону</th>
                                         <th>Дата туру</th>
                                         <th>Кількість місць</th>
+                                        <th></th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -113,7 +114,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <td>" . $support['phone'] . "</td>
                         <td>" . $support['dateoftour'] . "</td> 
                         <td>" . $support['count'] . "</td>   
-                          <td><a href='support-update.php?id=$id'>Редактировать</a> | <a href='support-delete.php?id=$id' onclick='return confirmDelete();'>Удалить</a></td>
+                          <td><a href='tour-request-update.php?id=$id'>Редактировать</a> | <a href='tour-request-delete.php?id=$id' onclick='return confirmDelete();'>Удалить</a></td>
                       </tr>";
                                     }
                                     ?>
