@@ -1,20 +1,36 @@
 <?php
 if ($_POST) {
-  $name = trim(htmlspecialchars($_POST['name']));
-  $address = trim(htmlspecialchars($_POST['address']));
-  $lat = $_POST['lat'];
-  $lng= $_POST['lng'];
-  $type = $_POST['type'];
-  if (!empty($name)) {
-    require_once("../RedBeanPHP5_4_2/rb.php");
-    R::setup('mysql:host=mysql_techsupport;port=3306;dbname=db_techsupport', 'root', 'root3004917779');
-    $markers = R::dispense('markers');
-    $markers->name = $name;
-    $markers->address = $address;
-    $markers->lat = $lat;
-    $markers->lng = $lng;
-    $markers->type = $type;
-    R::store($markers);
-    header('location: /admin/tour-requests.php?msg=Запись успешно добавлена!');
-  }
+    $customername = trim(htmlspecialchars($_POST['customername']));
+    $date = $_POST['date'];
+    $place = trim(htmlspecialchars($_POST['place']));
+    $birthdate = $_POST['birthdate'];
+    $contact = $_POST['contact'];
+    $age = $_POST['age'];
+    $prepay = $_POST['prepay'];
+    $canyontour = $_POST['canyontour'];
+    $lunchcanyon = $_POST['lunchcanyon'];
+    $entrancesofievka = $_POST['entrancesofievka'];
+    $sofievkatour = $_POST['sofievkatour'];
+    $fullplace = $_POST['fullplace'];
+    $tourrequest = $_POST['tourrequest'];
+    if (!empty($customername)) {
+        require_once("../RedBeanPHP5_4_2/rb.php");
+        R::setup('mysql:host=mysql_sofievka;port=3306;dbname=db_sofievka', 'root', 'root3004917779');
+        $tourorders = R::dispense('tourorders');
+        $tourorders->customername = $customername;
+        $tourorders->date = $date;
+        $tourorders->place = $place;
+        $tourorders->birthdate = $birthdate;
+        $tourorders->contact = $contact;
+        $tourorders->age = $age;
+        $tourorders->prepay = $prepay;
+        $tourorders->canyontour = $canyontour;
+        $tourorders->lunchcanyon = $lunchcanyon;
+        $tourorders->entrancesofievka = $entrancesofievka;
+        $tourorders->sofievkatour = $sofievkatour;
+        $tourorders->fullplace = $fullplace;
+        $tourorders->tourrequest = $tourrequest;
+        R::store($tourorders);
+        header('location: /admin/tour-orders.php?msg=Запис успішно додано!');
+    }
 }
