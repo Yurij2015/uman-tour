@@ -123,7 +123,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                             </div>
                                         </div>
                                     </form>
-                                    <table class="table table-hover">
+                                    <table class="table table-hover table-responsive-md">
                                         <thead>
                                         <tr>
                                             <th>Номер замовлення</th>

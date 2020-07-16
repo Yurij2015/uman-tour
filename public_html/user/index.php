@@ -160,18 +160,19 @@ $sitepage = $sitedata->page;
 <section class="section" id="contact-us">
     <div class="container">
         <div class="row">
-            <div class="col-md-12 mb-3"><p id="order-added" class="text-warning text-center"><?= $msg ?></p></div>
-            <script>
-                setTimeout(function () {
-                    $('#order-added').fadeOut('fast');
-                }, 10000); // <-- time in milliseconds
-            </script>
+
             <div class="col-lg-4 col-md-4 col-xs-12">
                 <div class="left-text-content">
                     <div class="section-heading">
                         <h6>Замовити тур</h6>
                         <h2>Заповніть форму для замовлення туру!</h2>
                     </div>
+                    <div class="col-md-12 mb-3"><p id="order-added" class="text-warning text-center"><?= $msg ?></p></div>
+                    <script>
+                        setTimeout(function () {
+                            $('#order-added').fadeOut('fast');
+                        }, 30000); // <-- time in milliseconds
+                    </script>
                     <ul class="contact-info">
                         <li><a href="tel:<?= $phone ?>"><img src="assets/images/contact-info-01.png" alt="">
                                 <?= $phone ?></a>
@@ -211,7 +212,7 @@ $sitepage = $sitedata->page;
                             </div>
                             <div class="col-lg-12">
                                 <fieldset>
-                                    <button type="submit" id="form-submit" class="main-button-icon">Зателефонуйте! <i
+                                    <button type="submit" id="form-submit" class="main-button-icon">Відправити заявку! <i
                                                 class="fa fa-arrow-right"></i></button>
                                 </fieldset>
                             </div>
