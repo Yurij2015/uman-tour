@@ -1,6 +1,6 @@
 <?php
 require_once("../RedBeanPHP5_4_2/rb.php");
-R::setup('mysql:host=mysql_sofievka;port=3306;dbname=db_sofievka', 'root', 'root3004917779');
+require_once ("DbConnect.php");
 try {
     if (isset($_GET['id'])) {
         $id = $_GET['id'];

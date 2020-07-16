@@ -5,7 +5,7 @@ if (empty($_SESSION['username'])) {
     header("Location: /admin/log-in.php");
 }
 require_once("../RedBeanPHP5_4_2/rb.php");
-R::setup('mysql:host=mysql_sofievka;port=3306;dbname=db_sofievka', 'root', 'root3004917779');
+require_once ("DbConnect.php");
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
     $support = R::load('article', $id);
@@ -130,7 +130,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         <textarea type="text" class="form-control" name="content" id="content"><?= $content ?></textarea>
                                     </div>
                                     <input hidden name="id" value="<?= $id ?>">
-                                    <button type="submit" class="btn btn-success">Сохранить</button>
+                                    <button type="submit" class="btn btn-success">Зберегти</button>
                                     <a href="tour-requests.php" class="btn btn-info">Назад</a>
                                 </form>
                             </div>

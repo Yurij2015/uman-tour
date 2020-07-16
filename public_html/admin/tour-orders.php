@@ -116,7 +116,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     <tbody>
                                     <?php
                                     require_once("../RedBeanPHP5_4_2/rb.php");
-                                    R::setup('mysql:host=mysql_sofievka;port=3306;dbname=db_sofievka', 'root', 'root3004917779');
+                                    require_once("DbConnect.php");
                                     $tourorders = R::getAll('SELECT * FROM tourorders');
                                     foreach ($tourorders as $tourorder) {
                                         $id = $tourorder['id'];
@@ -128,7 +128,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                             <td><?= $tourorder['date'] ?></td>
                                             <td><?= $tourorder['place'] ?></td>
                                             <td><?= $tourorder['birthdate'] ?></td>
-                                            <td><?= $tourorder['contact'] ?></td>
+                                            <td>
+                                                <a href="tel:<?= $tourorder['contact'] ?>"><?= $tourorder['contact'] ?></a>
+                                            </td>
                                             <td><?= $tourorder['age'] ?></td>
                                             <td><?= $tourorder['prepay'] ?></td>
                                             <td><?= $tourorder['canyontour'] ?></td>

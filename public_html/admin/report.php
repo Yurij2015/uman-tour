@@ -69,12 +69,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0 text-dark">Создание отчетов</h1>
+                        <h1 class="m-0 text-dark">Створення звітів</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="/admin">Главная</a></li>
-                            <li class="breadcrumb-item active">Заявки на техподдержку</li>
+                            <li class="breadcrumb-item"><a href="/admin">Головна</a></li>
+                            <li class="breadcrumb-item active">Замовлення</li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -87,7 +87,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <div class="container-fluid">
                 <?php
                 require_once("../RedBeanPHP5_4_2/rb.php");
-                R::setup('mysql:host=mysql_techsupport;port=3306;dbname=db_techsupport', 'root', 'root3004917779');
+                require_once ("DbConnect.php");
                 ?>
                 <div class="row">
                     <div class="col-lg-12">
@@ -100,90 +100,84 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                                 <label for="dateoforder" hidden> </label>
                                                 <select class="form-control form-inline" name="dateoforder"
                                                         id="dateoforder">
-                                                    <option value="" selected disabled hidden>Выбрите дату</option>
+                                                    <option value="" selected disabled hidden>Виберіть дату</option>
                                                     <?php
                                                     function get()
                                                     {
-                                                        return R::getAll("SELECT distinct DATE_FORMAT(dateoforder, '%Y-%m-%d') as dateoforder FROM article");
+                                                        return R::getAll("SELECT distinct DATE_FORMAT(date, '%Y-%m-%d') as dateoforder FROM tourorders");
                                                     }
 
-                                                    foreach (get() as $tutor) { ?>
-                                                        <option value="<?php echo $tutor['dateoforder']; ?>">
-                                                            <?php echo $tutor['dateoforder']; ?>
+                                                    foreach (get() as $tourdate) { ?>
+                                                        <option value="<?php echo $tourdate['dateoforder']; ?>">
+                                                            <?php echo $tourdate['dateoforder']; ?>
                                                         </option>
                                                     <?php } ?>
                                                 </select>
                                             </div>
                                             <div class="col">
-                                                <label for="status" hidden> </label>
-                                                <select class="form-control" name="status"
-                                                        style="text-transform: uppercase;" id="status">
-                                                    <option value="" selected disabled hidden>Выбрать статус</option>
-                                                    <option value="1" class="text-primary">active</option>
-                                                    <option value="2" class="text-success">in process</option>
-                                                    <option value="3" class="text-danger">inactive</option>
-                                                </select>
-                                            </div>
-                                            <div class="col">
                                                 <label for="submit"> </label>
-                                                <input type="submit" value="Показать" class="btn btn-primary"
+                                                <input type="submit" value="Відобразити" class="btn btn-primary"
                                                        id="submit">
-                                                <button class="btn btn-primary" onclick="window.print();">Печать
+                                                <button class="btn btn-primary" onclick="window.print();">Друкувати
                                                 </button>
-
                                             </div>
                                         </div>
                                     </form>
                                     <table class="table table-hover">
                                         <thead>
                                         <tr>
-                                            <th>Вопрос</th>
-                                            <th>Пользователь</th>
-                                            <th>Дата заявки</th>
-                                            <th>Статус</th>
-                                            <th></th>
+                                            <th>Номер замовлення</th>
+                                            <th>Номер заявки</th>
+                                            <th>ПІП</th>
+                                            <th>Дата виїзду</th>
+                                            <th>Місце виїзду</th>
+                                            <th>Дата народження</th>
+                                            <th>Контакти | Viber</th>
+                                            <th>Дорослий/Дитина</th>
+                                            <th>Аванс</th>
+                                            <th>Екскурсія каньйон</th>
+                                            <th>Обід каньйон</th>
+                                            <th>Вхід Софіївка</th>
+                                            <th>Екскурсія Софіївка</th>
+                                            <th>Повний</th>
+                                            <th class="no-print"></th>
                                         </tr>
                                         </thead>
                                         <tbody>
                                         <?php
-                                        if ($_POST['dateoforder'] and $_POST['status']) {
+                                        if ($_POST['dateoforder']) {
                                             $dateoforder = $_POST['dateoforder'];
-                                            $status = $_POST['status'];
-                                            $supports = R::getAll("SELECT * FROM article WHERE DATE_FORMAT(dateoforder, '%Y-%m-%d') = '{$dateoforder}' AND status ='{$status}'");
-                                        }
-                                        if ($_POST['dateoforder'] and !$_POST['status']) {
-                                            $dateoforder = $_POST['dateoforder'];
-                                            $supports = R::getAll("SELECT * FROM article WHERE DATE_FORMAT(dateoforder, '%Y-%m-%d') = '{$dateoforder}'");
-                                        }
-                                        if (!$_POST['dateoforder'] and $_POST['status']) {
-                                            $status = $_POST['status'];
-                                            $supports = R::getAll("SELECT * FROM article WHERE status = '{$status}'");
+                                            $tourorders = R::getAll("SELECT * FROM tourorders WHERE DATE_FORMAT(date, '%Y-%m-%d') = '{$dateoforder}'");
                                         }
                                         if (!$_POST) {
-                                            $supports = R::getAll('SELECT * FROM article');
+                                            $tourorders = R::getAll('SELECT * FROM tourorders');
                                         }
-                                        foreach ($supports as $support) {
-                                            $id = $support['id'];
-                                            switch ($support['status']) {
-                                                case 1:
-                                                    $value = "active";
-                                                    $style = "text-primary";
-                                                    break;
-                                                case 2:
-                                                    $value = "in process";
-                                                    $style = "text-success";
-                                                    break;
-                                                case 3:
-                                                    $value = "inactive";
-                                                    $style = "text-danger";
-                                                    break;
-                                            }
-                                            echo "<tr>
-                        <td style='width: 70%;'>" . $support['question'] . "</td>
-                        <td>" . $support['username'] . "</td>  
-                        <td>" . $support['dateoforder'] . "</td>   
-                         <td class='" . $style . "' style='width: 20%; text-transform: uppercase; font-weight: bold;'>" . $value . "</td>          
-                      </tr>";
+                                        ?>
+                                        <?php
+                                        foreach ($tourorders as $tourorder) {
+                                            $id = $tourorder['id'];
+                                            ?>
+                                            <tr>
+                                                <td><?= $id ?></td>
+                                                <td><?= $tourorder['tourrequest'] ?></td>
+                                                <td><?= $tourorder['customername'] ?></td>
+                                                <td><?= $tourorder['date'] ?></td>
+                                                <td><?= $tourorder['place'] ?></td>
+                                                <td><?= $tourorder['birthdate'] ?></td>
+                                                <td><?= $tourorder['contact'] ?></td>
+                                                <td><?= $tourorder['age'] ?></td>
+                                                <td><?= $tourorder['prepay'] ?></td>
+                                                <td><?= $tourorder['canyontour'] ?></td>
+                                                <td><?= $tourorder['lunchcanyon'] ?></td>
+                                                <td><?= $tourorder['entrancesofievka'] ?></td>
+                                                <td><?= $tourorder['sofievkatour'] ?></td>
+                                                <td><?= $tourorder['fullplace'] ?></td>
+                                                <td class="no-print"><a href="tour-order-update.php?id=<?= $id ?>">Редагувати</a>
+                                                    | <a
+                                                            href="tour-order-delete.php?id=<?= $id ?>"
+                                                            onclick='return confirmDelete();'>Видалити</a></td>
+                                            </tr>
+                                            <?php
                                         }
                                         ?>
                                         </tbody>

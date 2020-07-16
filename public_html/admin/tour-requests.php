@@ -104,17 +104,17 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     <tbody>
                                     <?php
                                     require_once("../RedBeanPHP5_4_2/rb.php");
-                                    R::setup('mysql:host=mysql_sofievka;port=3306;dbname=db_sofievka', 'root', 'root3004917779');
-                                    $supports = R::getAll('SELECT * FROM tourrequest');
-                                    foreach ($supports as $support) {
-                                        $id = $support['id'];
-                                        $orderer = $support['name'];
+                                    require_once("DbConnect.php");
+                                    $tourrequests = R::getAll('SELECT * FROM tourrequest');
+                                    foreach ($tourrequests as $tourrequest) {
+                                        $id = $tourrequest['id'];
+                                        $orderer = $tourrequest['name'];
                                         echo "<tr>
                         <td>" . $id . "</td>
                         <td>" . $orderer . "</td>
-                        <td>" . $support['phone'] . "</td>
-                        <td>" . $support['dateoftour'] . "</td> 
-                        <td>" . $support['count'] . "</td>   
+                        <td><a href='tel:" . $tourrequest['phone'] . "'> " . $tourrequest['phone'] . "</a></td>
+                        <td>" . $tourrequest['dateoftour'] . "</td> 
+                        <td>" . $tourrequest['count'] . "</td>   
                           <td><a href='tour-request-update.php?id=$id'>Редагувати</a> | <a href='tour-request-delete.php?id=$id' onclick='return confirmDelete();'>Видалити</a> | <a href='tourist-add.php?tourrequestid=$id&orderer=$orderer'>Додати замовлення</a> </td>
                       </tr>";
                                     }

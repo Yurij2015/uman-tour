@@ -15,7 +15,7 @@ if ($_POST) {
     $tourrequest = $_POST['tourrequest'];
     if (!empty($customername)) {
         require_once("../RedBeanPHP5_4_2/rb.php");
-        R::setup('mysql:host=mysql_sofievka;port=3306;dbname=db_sofievka', 'root', 'root3004917779');
+        require_once ("DbConnect.php");
         $tourorders = R::dispense('tourorders');
         $tourorders->customername = $customername;
         $tourorders->date = $date;

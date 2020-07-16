@@ -6,7 +6,7 @@ require_once("../RedBeanPHP5_4_2/rb.php");
 //user = 'admin';
 $username = $_POST['username'];
 $password = new Password($_POST['password']);
-R::setup('mysql:host=mysql_sofievka;port=3306;dbname=db_sofievka', 'root', 'root3004917779');
+require_once ("DbConnect.php");
 $auth = R::findOne('admin_user', ' username = ? ', ["$username"]);
 if ($_POST['submit']) {
   if ($auth->username == $username and $auth->password == $password) {
