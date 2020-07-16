@@ -90,7 +90,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <div class="card">
                             <div class="card-body">
                                 <h5 class="card-title">Список заявок на поїздки</h5>
-                                <table class="table table-hover">
+                                <table class="table table-hover table-responsive-md">
                                     <thead>
                                     <tr>
                                         <th>№</th>

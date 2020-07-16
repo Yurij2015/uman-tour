@@ -30,7 +30,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Navbar -->
   <?php
   require_once("navbar.php");
-  ?>>
+  ?>
   <!-- /.navbar -->
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
@@ -86,7 +86,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <div class="card">
               <div class="card-body">
                   <h5 class="card-title">Дані на головній сторінці</h5>
-                <table class="table table-hover">
+                <table class="table table-hover table-responsive">
                   <thead>
                   <tr>
                     <th>№</th>

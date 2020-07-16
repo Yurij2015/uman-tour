@@ -1,23 +1,37 @@
 <?php
 if ($_POST) {
-    $sitename = $_POST['sitename'];
-    $footer = $_POST['footer'];
-    $phone = $_POST['phone'];
-    $keywords = $_POST['keywords'];
-    $description = $_POST['description'];
-    $sitepage = $_POST['sitepage'];
+    $customername = trim(htmlspecialchars($_POST['customername']));
+    $date = $_POST['date'];
+    $place = trim(htmlspecialchars($_POST['place']));
+    $birthdate = $_POST['birthdate'];
+    $contact = $_POST['contact'];
+    $age = $_POST['age'];
+    $prepay = $_POST['prepay'];
+    $canyontour = $_POST['canyontour'];
+    $lunchcanyon = $_POST['lunchcanyon'];
+    $entrancesofievka = $_POST['entrancesofievka'];
+    $sofievkatour = $_POST['sofievkatour'];
+    $fullplace = $_POST['fullplace'];
+    $tourrequest = $_POST['tourrequest'];
     $id = $_POST['id'];
-    if (!empty($sitename)) {
+    if (!empty($customername)) {
         require_once("../RedBeanPHP5_4_2/rb.php");
         R::setup('mysql:host=mysql_sofievka;port=3306;dbname=db_sofievka', 'root', 'root3004917779');
-        $sitedata = R::load('sitedata', $id);
-        $sitedata->sitename = $sitename;
-        $sitedata->footer = $footer;
-        $sitedata->phone = $phone;
-        $sitedata->keywords = $keywords;
-        $sitedata->description = $description;
-        $sitedata->page = $sitepage;
-        R::store($sitedata);
-        header('location: /admin/sitedata.php?msg=Запис успішно оновлено!');
+        $tourorders = R::load('tourorders', $id);
+        $tourorders->customername = $customername;
+        $tourorders->date = $date;
+        $tourorders->place = $place;
+        $tourorders->birthdate = $birthdate;
+        $tourorders->contact = $contact;
+        $tourorders->age = $age;
+        $tourorders->prepay = $prepay;
+        $tourorders->canyontour = $canyontour;
+        $tourorders->lunchcanyon = $lunchcanyon;
+        $tourorders->entrancesofievka = $entrancesofievka;
+        $tourorders->sofievkatour = $sofievkatour;
+        $tourorders->fullplace = $fullplace;
+        $tourorders->tourrequest = $tourrequest;
+        R::store($tourorders);
+        header('location: /admin/tour-orders.php?msg=Запис успішно оновлено!');
     }
 }

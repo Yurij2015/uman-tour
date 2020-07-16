@@ -10,12 +10,18 @@ if (isset($_GET['id'])) {
     $id = $_GET['id'];
     $tourorders = R::load('tourorders', $id);
     $customername = $tourorders->customername;
-    $footer = $tourorders->footer;
-    $phone = $tourorders->phone;
-    $keywords = $tourorders->keywords;
-    $description = $tourorders->description;
-    $sitepage = $tourorders->page;
-
+    $tourrequest = $tourorders->tourrequest;
+    $date = $tourorders->date;
+    $place = $tourorders->place;
+    $birthdate = $tourorders->birthdate;
+    $contact = $tourorders->contact;
+    $age = $tourorders->age;
+    $prepay = $tourorders->prepay;
+    $canyontour = $tourorders->canyontour;
+    $lunchcanyon = $tourorders->lunchcanyon;
+    $entrancesofievka = $tourorders->entrancesofievka;
+    $sofievkatour = $tourorders->sofievkatour;
+    $fullplace = $tourorders->fullplace;
 }
 $page = "tour-order-update";
 ?>
@@ -116,11 +122,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 <form method="post" action="handler-update-tourorders.php">
                                     <div class="form-group">
                                         <label for="tourrequest">Номер
-                                            заявки <?php if (isset($tourrequest)) echo $tourrequest . " <span class='text-warning'>Заявник: " . $orderer . "</span>" ?></label>
+                                            заявки </label>
                                         <input type="text"
-                                               class="form-control" <?php if (isset($tourrequest)) echo "hidden" ?>
+                                               class="form-control"
                                                name="tourrequest" id="tourrequest"
-                                               value="<?php if (isset($tourrequest)) echo $tourrequest ?>">
+                                               value="<?= $tourrequest ?>">
+                                        <input hidden name="id" value="<?= $id ?>">
                                     </div>
                                     <div class="form-group">
                                         <label for="customername">ПІП</label>
@@ -130,49 +137,61 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     <div class="form-group">
                                         <label for="date">Дата виїзду</label>
                                         <input type="date" class="form-control" name="date" id="date"
-                                               value="">
+                                               value="<?= $date ?>">
                                     </div>
                                     <div class="form-group">
                                         <label for="place">Місце виїзду</label>
                                         <input type="text" class="form-control" name="place" id="place"
-                                               value="">
+                                               value="<?= $place ?>">
                                     </div>
                                     <div class="form-group">
                                         <label for="birthdate">Дата народження</label>
                                         <input type="date" class="form-control" name="birthdate" id="birthdate"
-                                               value="">
+                                               value="<?= $birthdate ?>">
                                     </div>
                                     <div class="form-group">
                                         <label for="contact">Контакти | Viber</label>
                                         <input type="tel" class="form-control" name="contact" id="contact"
-                                               value="">
+                                               value="<?= $contact ?>">
                                     </div>
                                     <div class="form-group">
                                         <label for="age">Дорослий/Дитина</label>
                                         <select type="text" class="form-control" name="age" id="age">
-                                            <option value="дорослий">дорослий</option>
-                                            <option value="дитина">дитина</option>
+                                            <option value="дорослий"
+                                                <?php if ($age == "дорослий") echo ' selected="selected"'; ?>>дорослий
+                                            </option>
+                                            <option value="дитина"
+                                                <?php if ($age == "дитина") echo ' selected="selected"'; ?>>дитина
+                                            </option>
                                         </select>
                                     </div>
                                     <div class="form-group">
                                         <label for="prepay">Аванс</label>
                                         <input type="number" step="any" class="form-control" name="prepay" id="prepay"
-                                               value="">
+                                               value="<?= $prepay ?>">
                                     </div>
                                     <div class="form-group">
                                         <label for="canyontour">Екскурсія каньйон</label>
                                         <select type="text" class="form-control" name="canyontour" id="canyontour">
                                             <option value="">не визначено</option>
-                                            <option value="так">так</option>
-                                            <option value="ні">ні</option>
+                                            <option value="так"
+                                                <?php if ($canyontour == "так") echo ' selected="selected"'; ?>>так
+                                            </option>
+                                            <option value="ні" <?php if ($canyontour == "ні") echo ' selected="selected"'; ?>>
+                                                ні
+                                            </option>
                                         </select>
                                     </div>
                                     <div class="form-group">
                                         <label for="lunchcanyon">Обід каньйон</label>
                                         <select type="text" class="form-control" name="lunchcanyon" id="lunchcanyon">
                                             <option value="">не визначено</option>
-                                            <option value="так">так</option>
-                                            <option value="ні">ні</option>
+                                            <option value="так" <?php if ($lunchcanyon == "так") echo ' selected="selected"'; ?>>
+                                                так
+                                            </option>
+                                            <option value="ні" <?php if ($lunchcanyon == "ні") echo ' selected="selected"'; ?>>
+                                                ні
+                                            </option>
                                         </select>
                                     </div>
                                     <div class="form-group">
@@ -180,24 +199,36 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         <select type="text" class="form-control" name="entrancesofievka"
                                                 id="entrancesofievka">
                                             <option value="">не визначено</option>
-                                            <option value="так">так</option>
-                                            <option value="ні">ні</option>
+                                            <option value="так" <?php if ($entrancesofievka == "так") echo ' selected="selected"'; ?>>
+                                                так
+                                            </option>
+                                            <option value="ні" <?php if ($entrancesofievka == "ні") echo ' selected="selected"'; ?>>
+                                                ні
+                                            </option>
                                         </select>
                                     </div>
                                     <div class="form-group">
                                         <label for="sofievkatour">Екскурсія Софіївка</label>
                                         <select type="text" class="form-control" name="sofievkatour" id="sofievkatour">
                                             <option value="">не визначено</option>
-                                            <option value="так">так</option>
-                                            <option value="ні">ні</option>
+                                            <option value="так" <?php if ($sofievkatour == "так") echo ' selected="selected"'; ?>>
+                                                так
+                                            </option>
+                                            <option value="ні" <?php if ($sofievkatour == "ні") echo ' selected="selected"'; ?>>
+                                                ні
+                                            </option>
                                         </select>
                                     </div>
                                     <div class="form-group">
                                         <label for="fullplace">Повний</label>
                                         <select type="text" class="form-control" name="fullplace" id="fullplace">
                                             <option value="">не визначено</option>
-                                            <option value="так">так</option>
-                                            <option value="ні">ні</option>
+                                            <option value="так" <?php if ($fullplace == "так") echo ' selected="selected"'; ?>>
+                                                так
+                                            </option>
+                                            <option value="ні" <?php if ($fullplace == "ні") echo ' selected="selected"'; ?>>
+                                                ні
+                                            </option>
                                         </select>
                                     </div>
                                     <button type="submit" class="btn btn-success">Зберегти</button>

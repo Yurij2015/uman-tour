@@ -102,7 +102,7 @@ if (isset($_GET['tourrequestid'])) {
                                     <div class="form-group">
                                         <label for="date">Дата виїзду</label>
                                         <input type="date" class="form-control" name="date" id="date"
-                                               value="">
+                                               value="" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="place">Місце виїзду</label>
@@ -112,7 +112,7 @@ if (isset($_GET['tourrequestid'])) {
                                     <div class="form-group">
                                         <label for="birthdate">Дата народження</label>
                                         <input type="date" class="form-control" name="birthdate" id="birthdate"
-                                               value="">
+                                               value="" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="contact">Контакти | Viber</label>

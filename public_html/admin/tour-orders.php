@@ -93,7 +93,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 <a href="report.php" target="_blank" class="btn btn-primary float-right mr-2">Сформувати
                                     звіт</a>
                                 <h5 class="card-title">Список замовлень на тур</h5>
-                                <table class="table table-hover">
+                                <table class="table table-hover table-responsive">
                                     <thead>
                                     <tr>
                                         <th>№</th>
@@ -137,7 +137,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                             <td><?= $tourorder['sofievkatour'] ?></td>
                                             <td><?= $tourorder['fullplace'] ?></td>
                                             <td><a href="tour-order-update.php?id=<?= $id ?>">Редагувати</a> | <a
-                                                        href="tour-order-delete.php?id=<?= $id ?>>"
+                                                        href="tour-order-delete.php?id=<?= $id ?>"
                                                         onclick='return confirmDelete();'>Видалити</a></td>
                                         </tr>
                                         <?php
