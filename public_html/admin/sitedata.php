@@ -118,7 +118,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <td>" . $support['description'] . "</td>
                         <td>" . $support['phone'] . "</td>
                         <td>" . $support['page'] . "</td>   
-                           <td><a href='tour-request-update.php?id=$id'>Редагувати</a></tr>";
+                           <td><a href='sitedata-update.php?id=$id'>Редагувати</a></tr>";
                                     }
                                     ?>
                                     </tbody>
